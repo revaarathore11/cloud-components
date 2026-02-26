@@ -5,6 +5,35 @@ export const fetcher = async (
   mockPath?: string
 ): Promise<Response> => {
   let useMock = false;
+  let debugMock = false;
+
+  // Check Vite environment variable
+  if (
+    typeof import.meta !== "undefined" &&
+    (import.meta as any).env &&
+    (import.meta as any).env.VITE_DEBUG_MOCK_API === "true"
+  ) {
+    debugMock = true;
+  }
+
+  // Check process environment variables
+  if (typeof process !== "undefined" && process.env) {
+    if (
+      process.env.VITE_DEBUG_MOCK_API === "true" ||
+      process.env.NEXT_PUBLIC_DEBUG_MOCK_API === "true" ||
+      process.env.DEBUG_MOCK_API === "true"
+    ) {
+      debugMock = true;
+    }
+  }
+
+  // Check global window as fallback
+  if (
+    typeof window !== "undefined" &&
+    (window as any).VITE_DEBUG_MOCK_API === "true"
+  ) {
+    debugMock = true;
+  }
 
   // Check Vite environment variable
   if (
@@ -39,20 +68,26 @@ export const fetcher = async (
       ? mockPath
       : `/${mockPath}`;
     const mockUrl = `/mocks${normalizedMockPath}.json`;
-    console.log(
-      `[API Mock] Intercepted call to ${url}. Fetching mock at ${mockUrl}`
-    );
+    if (debugMock) {
+      console.log(
+        `[API Mock] Intercepted call to ${url}. Fetching mock at ${mockUrl}`
+      );
+    }
 
     try {
       const mockResponse = await fetch(mockUrl);
       if (mockResponse.ok) {
         return mockResponse;
       }
-      console.warn(
-        `[API Mock] Enabled but failed to fetch mock file at ${mockUrl}. Status: ${mockResponse.status}. Falling back to live API.`
-      );
+      if (debugMock) {
+        console.warn(
+          `[API Mock] Enabled but failed to fetch mock file at ${mockUrl}. Status: ${mockResponse.status}. Falling back to live API.`
+        );
+      }
     } catch (e) {
-      console.warn(`[API Mock] Error fetching mock file at ${mockUrl}`, e);
+      if (debugMock) {
+        console.warn(`[API Mock] Error fetching mock file at ${mockUrl}`, e);
+      }
     }
   }
 
