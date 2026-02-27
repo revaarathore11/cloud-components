@@ -11,8 +11,6 @@ function cn(...classes: (string | undefined | false)[]) {
  * EccUtilsDesignCard - Main card container component
  *
  * @element ecc-utils-design-card
- *
- * @element ecc-utils-design-card
  */
 export class EccUtilsDesignCard extends LitElement {
   static styles = [
@@ -42,8 +40,6 @@ export class EccUtilsDesignCard extends LitElement {
  * EccUtilsDesignCardHeader - Card header component
  *
  * @element ecc-utils-design-card-header
- *
- * @element ecc-utils-design-card-header
  */
 export class EccUtilsDesignCardHeader extends LitElement {
   static styles = [
@@ -69,8 +65,6 @@ export class EccUtilsDesignCardHeader extends LitElement {
 
 /**
  * EccUtilsDesignCardTitle - Card title component
- *
- * @element ecc-utils-design-card-title
  *
  * @element ecc-utils-design-card-title
  */
@@ -100,8 +94,6 @@ export class EccUtilsDesignCardTitle extends LitElement {
  * EccUtilsDesignCardDescription - Card description component
  *
  * @element ecc-utils-design-card-description
- *
- * @element ecc-utils-design-card-description
  */
 export class EccUtilsDesignCardDescription extends LitElement {
   static styles = [
@@ -129,8 +121,6 @@ export class EccUtilsDesignCardDescription extends LitElement {
  * EccUtilsDesignCardContent - Card content component
  *
  * @element ecc-utils-design-card-content
- *
- * @element ecc-utils-design-card-content
  */
 export class EccUtilsDesignCardContent extends LitElement {
   static styles = [
@@ -156,8 +146,6 @@ export class EccUtilsDesignCardContent extends LitElement {
 
 /**
  * EccUtilsDesignCardFooter - Card footer component
- *
- * @element ecc-utils-design-card-footer
  *
  * @element ecc-utils-design-card-footer
  */
