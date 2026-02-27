@@ -12,6 +12,8 @@ function cn(...classes: (string | undefined | false)[]) {
  * EccUtilsDesignTabs - Main tabs container component
  *
  * @element ecc-utils-design-tabs
+ *
+ * @element ecc-utils-design-tabs
  */
 export class EccUtilsDesignTabs extends LitElement {
   static styles = [
@@ -140,6 +142,8 @@ export class EccUtilsDesignTabs extends LitElement {
  * EccUtilsDesignTabsList - Container for tab triggers
  *
  * @element ecc-utils-design-tabs-list
+ *
+ * @element ecc-utils-design-tabs-list
  */
 export class EccUtilsDesignTabsList extends LitElement {
   static styles = [
@@ -169,6 +173,8 @@ export class EccUtilsDesignTabsList extends LitElement {
 
 /**
  * EccUtilsDesignTabsTrigger - Individual tab trigger button
+ *
+ * @element ecc-utils-design-tabs-trigger
  *
  * @element ecc-utils-design-tabs-trigger
  */
@@ -229,6 +235,8 @@ export class EccUtilsDesignTabsTrigger extends LitElement {
 
 /**
  * EccUtilsDesignTabsContent - Content panel for a tab
+ *
+ * @element ecc-utils-design-tabs-content
  *
  * @element ecc-utils-design-tabs-content
  */
